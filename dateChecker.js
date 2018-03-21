@@ -37,7 +37,7 @@ class DateChecker{
 
     unixifyDate(date){
         if(!(this.isInputInvalid(date))){
-            return  moment(date["timestamp"]).unix();
+            return  moment(date).unix();
         }
     }
 

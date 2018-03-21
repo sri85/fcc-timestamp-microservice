@@ -7,8 +7,8 @@
 
 const fs = require('fs');
 const express = require('express');
-const moment = require('moment');
 const dateChecker = require('./dateChecker');
+
 const app = express();
 
 app.get('/time/:timestamp', function (request, response) {
@@ -17,7 +17,7 @@ app.get('/time/:timestamp', function (request, response) {
     let unixTime;
     let naturalTime;
 
-    console.log(moment.unix(input["timestamp"]).format('LL'));
+
     if(dateChecker.verifyTimestamp(Number(input["timestamp"]))){
             unixTime = input["timestamp"];
             naturalTime = dateChecker.humanizeDate(input["timestamp"]);
@@ -37,7 +37,8 @@ app.get('/time/:timestamp', function (request, response) {
         'natural': naturalTime,
         'unix': unixTime
     };
-    response.json(responseBody);
+    response.json(responseBody).end();
+
 });
 app.listen(3000, function (err, data) {
     if (err) {
@@ -45,3 +46,4 @@ app.listen(3000, function (err, data) {
     }
     console.log('Node.js listening on  3000 ... ');
 });
+module.exports = app;
