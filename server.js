@@ -31,6 +31,12 @@ app.get('/time/:timestamp', (request, response) => {
   };
   response.json(responseBody).end();
 });
+
+app.route('/')
+  .get((req, res) => {
+    res.sendFile(`${process.cwd()}/views/index.html`);
+  });
+
 app.listen(3000, (err) => {
   if (err) {
     throw err;

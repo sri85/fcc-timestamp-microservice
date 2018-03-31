@@ -16,7 +16,7 @@ It returns unix time when the user passes a natural date
 "unix:"122434343"
 }
 ```
-For Local Developmet
+For Local Development
 
 ```
 npm install -- Installs the Dependencies
